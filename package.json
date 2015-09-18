@@ -1,0 +1,23 @@
+{
+  "name": "ur-mom-radio",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SweetWalker/UR_MOM_RADIO.git"
+  },
+  "author": "Zoilorys <zoilorys@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SweetWalker/UR_MOM_RADIO/issues"
+  },
+  "homepage": "https://github.com/SweetWalker/UR_MOM_RADIO#readme",
+  "dependencies": {
+    "socket.io": "^1.3.6"
+  }
+}
