@@ -1,31 +1,23 @@
 var http = require('http'),
     fs   = require('fs'),
     filePath = 'audio/disco.mp3',
+    io = require('socket.io')(http),
     stat = fs.statSync(filePath);
 
 http.createServer(function(request, response) {
+    response.write('/frontend/index.html');
+    response.end();
+}).listen(2000, function() {
+    console.log('UR MOM running on port 2000');
+});
 
-    response.writeHead(200, {
-        'Content-Type': 'audio/mpeg',
-        'Content-Length': stat.size
+io.on('connection', function(socket) {
+    console.log('some shithead connected!');
+
+    socket.on('disconnect', function() {
+        console.log('HE IS RUNNING AWAY!!!');
     });
-    var somefunc = function () {
-    var pew = fs.createReadStream(filePath)
-    pew.on('open', function(){
-    	pew.pipe(response);
-    	console.log('First playing')
-    })
-    pew.on('end', function(){
-    	process.nextTick( function(){
-    		pew.pipe(response)
-    	});
-    	console.log('END')
-    })
-}
-
-somefunc();
+});
 
 
-})
-.listen(2000);
 
