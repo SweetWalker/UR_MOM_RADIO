@@ -6,10 +6,11 @@ var express = require('express'),
     io = require('socket.io')(http),
     stat = fs.statSync(filePath);
 
+app.set('port', process.argv[2] || 9000)
 app.get('/', express.static(__dirname + "/frontend/"));
 
-http.listen(2000, function() {
-    console.log('UR MOM running on port 2000');
+http.listen(app.get('port'), function() {
+    console.log('UR MOM is over ' + app.get('port') + ' kgs');
 });
 
 io.on('connection', function(socket) {
